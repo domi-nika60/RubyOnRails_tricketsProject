@@ -25,5 +25,9 @@
   <%= @ticket.email_address %>
 </p>
 
+<button type="button" class="btn btn-outline-danger btn-round">
 <%= link_to 'Edytuj', edit_ticket_path(@ticket) %> |
+</button>
+<button type="button" class="btn btn-outline-danger btn-round">
 <%= link_to 'Wróć', tickets_path %>
+</button>

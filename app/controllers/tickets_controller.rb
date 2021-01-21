@@ -1,5 +1,7 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /tickets
   # GET /tickets.json
@@ -14,7 +16,7 @@ class TicketsController < ApplicationController
 
   # GET /tickets/new
   def new
-    @ticket = Ticket.new
+    @ticket = current_user.tickets.new
     @events = Event.all
   end
 
@@ -26,7 +28,7 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    @ticket = Ticket.new(ticket_params)
+    @ticket = current_user.tickets.new(ticket_params)
 
     respond_to do |format|
       if @ticket.save
@@ -75,4 +77,9 @@ class TicketsController < ApplicationController
     def ticket_params
       params.require(:ticket).permit(:name, :address, :price, :email_address, :phone, :event_id)
     end
+
+    def correct_user    
+      @ticket = current_user.tickets.find_by(id: params[:id])     
+      redirect_to tickets_path, notice: "Nie jesteś uprawniony do edycji tego biletu" if @ticket.nil? 
+    end 
 end

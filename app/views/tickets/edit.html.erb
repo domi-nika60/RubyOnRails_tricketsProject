@@ -2,5 +2,9 @@
 
 <%= render 'form', ticket: @ticket %>
 
-<%= link_to 'Pokaż', @ticket %> |
+<button type="button" class="btn btn-outline-danger btn-round">
+<%= link_to 'Pokaż', @ticket %> 
+</button>
+<button type="button" class="btn btn-outline-danger btn-round">
 <%= link_to 'Wróć', tickets_path %>
+</button>
