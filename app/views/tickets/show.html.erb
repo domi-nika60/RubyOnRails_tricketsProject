@@ -6,11 +6,6 @@
 </p>
 
 <p>
-  <strong>Seat id seq:</strong>
-  <%= @ticket.seat_id_seq %>
-</p>
-
-<p>
   <strong>Address:</strong>
   <%= @ticket.address %>
 </p>
@@ -30,5 +25,5 @@
   <%= @ticket.email_address %>
 </p>
 
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+<%= link_to 'Edytuj', edit_ticket_path(@ticket) %> |
+<%= link_to 'Wróć', tickets_path %>

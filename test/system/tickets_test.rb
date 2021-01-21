@@ -7,12 +7,12 @@ class TicketsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit tickets_url
-    assert_selector "h1", text: "Tickets"
+    assert_selector "h1", text: "Bilety"
   end
 
   test "creating a Ticket" do
     visit tickets_url
-    click_on "New Ticket"
+    click_on "Nowy bilet"
 
     fill_in "Address", with: @ticket.address
     fill_in "Email address", with: @ticket.email_address
@@ -22,7 +22,7 @@ class TicketsTest < ApplicationSystemTestCase
     click_on "Create Ticket"
 
     assert_text "Ticket was successfully created"
-    click_on "Back"
+    click_on "Wróć"
   end
 
   test "updating a Ticket" do
@@ -37,7 +37,7 @@ class TicketsTest < ApplicationSystemTestCase
     click_on "Update Ticket"
 
     assert_text "Ticket was successfully updated"
-    click_on "Back"
+    click_on "Wróć"
   end
 
   test "destroying a Ticket" do

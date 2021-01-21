@@ -15,13 +15,11 @@ class TicketsController < ApplicationController
   # GET /tickets/new
   def new
     @ticket = Ticket.new
-    #new
     @events = Event.all
   end
 
   # GET /tickets/1/edit
   def edit
-    # new
     @events = Event.all
   end
 
@@ -35,7 +33,6 @@ class TicketsController < ApplicationController
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
         format.json { render :show, status: :created, location: @ticket }
       else
-        # new
         @events = Event.all
         format.html { render :new }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
@@ -46,7 +43,6 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
   def update
-    # new
     @events = Event.all
     respond_to do |format|
       if @ticket.update(ticket_params)
@@ -77,6 +73,6 @@ class TicketsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ticket_params
-      params.require(:ticket).permit(:name, :seat_id_seq, :address, :price, :email_address)
+      params.require(:ticket).permit(:name, :address, :price, :email_address, :phone, :event_id)
     end
 end

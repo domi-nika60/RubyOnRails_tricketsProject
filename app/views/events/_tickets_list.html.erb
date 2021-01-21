@@ -1,8 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bilety</h1>
+
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Seat id seq</th>
       <th>Address</th>
       <th>Price</th>
       <th>Email address</th>
@@ -15,7 +18,6 @@
     <% tickets.each do |ticket| %>
       <tr>
         <td><%= ticket.name %></td>
-        <td><%= ticket.seat_id_seq %></td>
         <td><%= ticket.address %></td>
         <td><%= ticket.price %></td>
         <td><%= ticket.email_address %></td>
@@ -27,3 +29,6 @@
     <% end %>
   </tbody>
 </table>
+
+<br>
+

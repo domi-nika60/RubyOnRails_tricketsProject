@@ -11,14 +11,12 @@
     </div>
   <% end %>
 
+   <%= form.collection_select :event_id, @events, :id, :artist_and_date, include_blank: false %>
+
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :seat_id_seq %>
-    <%= form.text_field :seat_id_seq %>
   </div>
 
   <div class="field">
