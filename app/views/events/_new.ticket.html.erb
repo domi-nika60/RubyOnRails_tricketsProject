@@ -1,12 +1,12 @@
-<%= form_with(model: ticket) do |form| %>
+<%= form_with(model: ticket, local: true) do |form| %>
   <% if ticket.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
 
       <ul>
-        <% ticket.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
+      <% ticket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
@@ -15,6 +15,8 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
+
+  <%= form.hidden_field :event_id, :value => ticket.event_id %>
 
   <div class="field">
     <%= form.label :seat_id_seq %>
@@ -41,7 +43,11 @@
     <%= form.text_field :phone %>
   </div>
 
+  # <%= form.hidden_field :event_id, value: ticket.event_id %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
+
